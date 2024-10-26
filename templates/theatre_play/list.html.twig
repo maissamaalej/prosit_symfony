@@ -1,0 +1,26 @@
+<table border=1>
+<tr>
+<th>id</th>
+<th>title</th>
+<th>genre</th>
+<th>duration</th>
+<th>add show</th>
+<th>update theatre</th>
+<th>delete theatre</th>
+</tr>
+
+{%for theatre in theatre%}
+<tr>
+   <td>{{theatre.id}}</td> 
+   <td>{{theatre.title}} </td> 
+   <td>{{theatre.genre}}</td>  
+    <td>{{theatre.duration}}</td>  
+     <td><a href="{{path('show_add')}}" > ajouterShow </a></td>
+       <td><a href="{{ path('update_play', {'id': theatre.id}) }}">update play</a></td>
+        <td><a href="{{ path('play_delete', {'id': theatre.id}) }}" onclick="return confirm('Are you sure you want to delete this theatreplay?');" class="btn btn-danger">Delete</a> </td>
+  {% endfor %}
+  </tr>
+  <a href="{{path('tri_title')}}" > tri par titre </a>
+  <a href="{{path('tri_duration')}}">  tri_duration </a>
+
+  
